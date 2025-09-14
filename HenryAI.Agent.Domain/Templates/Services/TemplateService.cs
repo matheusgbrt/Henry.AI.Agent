@@ -1,24 +1,45 @@
-﻿using Agent.Refactoring.Domain.Templates.Dtos;
-using Agent.Refactoring.Domain.Templates.Providers;
-using Agent.Refactoring.Domain.Templates.Providers.Interfaces;
-using Agent.Refactoring.Domain.Templates.Tokens;
+﻿using System.Text.RegularExpressions;
+using HenryAI.Agent.Domain.Templates.Dtos;
+using HenryAI.Agent.Domain.Templates.Providers.Interfaces;
+using HenryAI.Agent.Domain.Templates.Tokens;
+using HenryAI.Agent.ExternalDependencies.DependencyInjectons.Interfaces;
 
-namespace Agent.Refactoring.Domain.Templates.Services;
+namespace HenryAI.Agent.Domain.Templates.Services;
 
-internal class TemplateService :ITemplateService
+public class TemplateService :ITemplateService, ITransientDependency
 {
     private readonly ITemplateProviderFactory _templateProviderFactory;
+    private static readonly Regex Token = new(@"//\[(?<key>[^\[\]]+)\]//", RegexOptions.Compiled);
 
     public TemplateService(ITemplateProviderFactory templateProviderFactory)
     {
         _templateProviderFactory = templateProviderFactory;
     }
 
-    public TemplateDto BuildTemplate(TemplateType templateType,Dictionary<ReplaceProperty,string> replaceProperties)
+    public TemplateDto BuildTemplate(TemplateType templateType,IReadOnlyDictionary<ReplaceProperty,string> replaceProperties)
     {
         var provider = _templateProviderFactory.Get(templateType);
         var raw = provider.ProvideTemplate();
-        var replacedTemplate = raw;
+        var replacedTemplate = Replace(raw,replaceProperties);
         return new TemplateDto(templateType,raw,replacedTemplate);
+    }
+    
+    private string Replace(string template, IReadOnlyDictionary<ReplaceProperty, string> map)
+    {
+        if (string.IsNullOrEmpty(template)) return template;
+        if (map.Count == 0) return template;
+
+        return Token.Replace(template, m =>
+        {
+            var key = m.Groups["key"].Value;
+
+            if (Enum.TryParse<ReplaceProperty>(key, ignoreCase: true, out var rp) &&
+                map.TryGetValue(rp, out var valueFromEnum))
+            {
+                return valueFromEnum ?? string.Empty;
+            }
+            
+            return m.Value;
+        });
     }
 }

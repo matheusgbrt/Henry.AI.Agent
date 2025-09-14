@@ -4,11 +4,11 @@
         <TargetFramework>net9.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <RootNamespace>HenryAI.Agent.Domain</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\HenryAI.Agent.ExternalDependencies\HenryAI.Agent.ExternalDependencies.csproj" />
+      <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.9" />
+      <PackageReference Include="Scrutor" Version="6.1.0" />
     </ItemGroup>
 
 </Project>

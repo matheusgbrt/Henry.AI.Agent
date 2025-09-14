@@ -12,6 +12,10 @@
 /dataSources/
 /dataSources.local.xml
 /HenryAI.Agent.Domain/obj
+/HenryAI.Agent.Domain/bin
 /HenryAI.Agent.Host/obj
 /HenryAI.Agent.Host/bin
+/HenryAI.Agent.ExternalDependencies/obj
+/HenryAI.Agent.ExternalDependencies/bin
 .idea/
+*.user

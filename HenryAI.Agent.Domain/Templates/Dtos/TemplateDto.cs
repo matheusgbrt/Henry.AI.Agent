@@ -1,6 +1,6 @@
-﻿using Agent.Refactoring.Domain.Templates.Tokens;
+﻿using HenryAI.Agent.Domain.Templates.Tokens;
 
-namespace Agent.Refactoring.Domain.Templates.Dtos;
+namespace HenryAI.Agent.Domain.Templates.Dtos;
 
 public class TemplateDto
 {

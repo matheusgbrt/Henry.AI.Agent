@@ -1,9 +1,10 @@
 ﻿using System.ClientModel;
+using HenryAI.Agent.ExternalDependencies.DependencyInjectons.Interfaces;
 using OpenAI.Chat;
 
 namespace HenryAI.Agent.Host.OpenAI.Services;
 
-public class ChatService : IChatService
+public class ChatService : IChatService, IScopedDependency
 {
     private readonly ChatClient _chatClient;
 

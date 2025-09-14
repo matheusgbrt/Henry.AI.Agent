@@ -1,9 +1,10 @@
-﻿using Agent.Refactoring.Domain.Templates.Providers.Interfaces;
-using Agent.Refactoring.Domain.Templates.Tokens;
+﻿using HenryAI.Agent.Domain.Templates.Providers.Interfaces;
+using HenryAI.Agent.Domain.Templates.Tokens;
+using HenryAI.Agent.ExternalDependencies.DependencyInjectons.Interfaces;
 
-namespace Agent.Refactoring.Domain.Templates.Providers;
+namespace HenryAI.Agent.Domain.Templates.Providers;
 
-internal class TemplateProviderFactory :ITemplateProviderFactory
+public class TemplateProviderFactory :ITemplateProviderFactory, ISingletonDependency
 {
     private readonly IReadOnlyDictionary<TemplateType, ITemplateProvider> _map;
 

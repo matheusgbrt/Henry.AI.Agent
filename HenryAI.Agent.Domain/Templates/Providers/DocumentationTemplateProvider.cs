@@ -1,14 +1,15 @@
-﻿using Agent.Refactoring.Domain.Templates.Providers.Interfaces;
-using Agent.Refactoring.Domain.Templates.Tokens;
+﻿using HenryAI.Agent.Domain.Templates.Providers.Interfaces;
+using HenryAI.Agent.Domain.Templates.Tokens;
+using HenryAI.Agent.ExternalDependencies.DependencyInjectons.Interfaces;
 
-namespace Agent.Refactoring.Domain.Templates.Providers;
+namespace HenryAI.Agent.Domain.Templates.Providers;
 
-internal class DocumentationTemplateProvider : ITemplateProvider
+public class DocumentationTemplateProvider : ITemplateProvider, ITransientDependency
 {
     public TemplateType Type => TemplateType.DocumentationTemplate;
 
     public string ProvideTemplate()
     {
-        return "Insert documentation template here //[{}]//";
+        return "Repita a mensagem a seguir: //[Code]//";
     }
 }

@@ -1,8 +1,8 @@
-﻿using Agent.Refactoring.Domain.Templates.Tokens;
+﻿using HenryAI.Agent.Domain.Templates.Tokens;
 
-namespace Agent.Refactoring.Domain.Templates.Providers.Interfaces;
+namespace HenryAI.Agent.Domain.Templates.Providers.Interfaces;
 
-internal interface ITemplateProvider
+public interface ITemplateProvider
 {
     TemplateType Type { get; }
     public string ProvideTemplate();

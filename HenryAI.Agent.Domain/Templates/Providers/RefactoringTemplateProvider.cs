@@ -1,9 +1,10 @@
-﻿using Agent.Refactoring.Domain.Templates.Providers.Interfaces;
-using Agent.Refactoring.Domain.Templates.Tokens;
+﻿using HenryAI.Agent.Domain.Templates.Providers.Interfaces;
+using HenryAI.Agent.Domain.Templates.Tokens;
+using HenryAI.Agent.ExternalDependencies.DependencyInjectons.Interfaces;
 
-namespace Agent.Refactoring.Domain.Templates.Providers;
+namespace HenryAI.Agent.Domain.Templates.Providers;
 
-internal class RefactoringTemplateProvider : ITemplateProvider
+public class RefactoringTemplateProvider : ITemplateProvider, ITransientDependency
 {
     public TemplateType Type => TemplateType.RefactoringTemplate;
 

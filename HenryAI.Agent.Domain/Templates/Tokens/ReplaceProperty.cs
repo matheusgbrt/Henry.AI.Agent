@@ -1,4 +1,4 @@
-﻿namespace Agent.Refactoring.Domain.Templates.Tokens;
+﻿namespace HenryAI.Agent.Domain.Templates.Tokens;
 
 public enum ReplaceProperty
 {

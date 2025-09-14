@@ -12,10 +12,12 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Documentation\Controllers\" />
-      <Folder Include="Documentation\Dtos\" />
-      <Folder Include="Documentation\Services\" />
       <Folder Include="OpenAI\Dtos\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\HenryAI.Agent.Domain\HenryAI.Agent.Domain.csproj" />
+      <ProjectReference Include="..\HenryAI.Agent.ExternalDependencies\HenryAI.Agent.ExternalDependencies.csproj" />
     </ItemGroup>
 
 </Project>
