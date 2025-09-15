@@ -10,6 +10,6 @@ public class RefactoringTemplateProvider : ITemplateProvider, ITransientDependen
 
     public string ProvideTemplate()
     {
-        return "Insert documentation template here //[{}]//";
+        return "Repita a mensagem a seguir e adicione Até logo! no final da mesma: //[Code]//";
     }
 }

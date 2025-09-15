@@ -10,6 +10,6 @@ public class DocumentationTemplateProvider : ITemplateProvider, ITransientDepend
 
     public string ProvideTemplate()
     {
-        return "Repita a mensagem a seguir: //[Code]//";
+        return "Documento o código a seguir utilizando comentários. Não utilize jargões técnicos, tente abstrair para a regra de negócios. Utilize DOCSTRING para realizar a documentação.: //[Code]//";
     }
 }

@@ -2,5 +2,5 @@
 
 public enum ReplaceProperty
 {
-    Code =0
+    Code = 0
 }

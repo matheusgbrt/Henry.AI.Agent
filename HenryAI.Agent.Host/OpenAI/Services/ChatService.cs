@@ -4,7 +4,7 @@ using OpenAI.Chat;
 
 namespace HenryAI.Agent.Host.OpenAI.Services;
 
-public class ChatService : IChatService, IScopedDependency
+public class ChatService : IChatService, ITransientDependency
 {
     private readonly ChatClient _chatClient;
 

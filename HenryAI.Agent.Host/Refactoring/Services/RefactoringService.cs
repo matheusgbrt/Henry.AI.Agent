@@ -5,33 +5,32 @@ using HenryAI.Agent.Host.OpenAI.Services;
 using HenryAI.Agent.Host.Services.Interfaces;
 using HenryAI.Agent.Host.Tokens;
 
-namespace HenryAI.Agent.Host.Documentation.Services;
+namespace HenryAI.Agent.Host.Refactoring.Services;
 
-public class DocumentationService : IBaseService, ITransientDependency
+public class RefactoringService : IBaseService, ITransientDependency
 {
-    private readonly TemplateType _templateType = TemplateType.DocumentationTemplate;
-    public ActionType Action => ActionType.Documentation;
-
+    private TemplateType _templateType => TemplateType.RefactoringTemplate;
+    public ActionType Action => ActionType.Refactoring;
+    
     private readonly ITemplateService _templateService;
     private readonly IChatService _chatService;
 
-    public DocumentationService(ITemplateService templateService, IChatService chatService)
+    public RefactoringService(ITemplateService templateService, IChatService chatService)
     {
         _templateService = templateService;
         _chatService = chatService;
     }
-    
+
     public async Task<string> BaseAction(string code)
     {
-        var replaceProperties = new Dictionary<ReplaceProperty, string>();
-        replaceProperties.Add(ReplaceProperty.Code,code);
+        var replaceProperties = new Dictionary<ReplaceProperty, string>()
+        {
+            {ReplaceProperty.Code,code}
+        };
         var templateDto = _templateService.BuildTemplate(_templateType,replaceProperties);
         if (!templateDto.Ok)
-        {
             return "";
-        }
-
-        var response = await _chatService.SendMessageAsync(templateDto.ReplacedTemplate);
+        var response= await _chatService.SendMessageAsync(templateDto.ReplacedTemplate);
         return response;
     }
 }
