@@ -9,18 +9,18 @@ namespace HenryAI.Agent.Host.Documentation.Controllers;
 [Route("agent/code/documentation")]
 public class DocumentationController : ControllerBase
 {
-    private readonly IBaseServiceFactory _baseServiceFactory;
+    private readonly IActionServiceFactory _actionServiceFactory;
 
-    public DocumentationController(IBaseServiceFactory baseServiceFactory)
+    public DocumentationController(IActionServiceFactory actionServiceFactory)
     {
-        _baseServiceFactory = baseServiceFactory;
+        _actionServiceFactory = actionServiceFactory;
     }
     
     [HttpPost]
     [Route("rawcode")]
     public async Task<IActionResult> CreateDocumentationFromRawCode([FromBody] DocumentationRawCodeInputDto input)
     {
-        var service = _baseServiceFactory.Get(ActionType.Documentation);
+        var service = _actionServiceFactory.Get(ActionType.Documentation);
         var response = await service.BaseAction(input.Code);
 
         if (!string.IsNullOrEmpty(response))

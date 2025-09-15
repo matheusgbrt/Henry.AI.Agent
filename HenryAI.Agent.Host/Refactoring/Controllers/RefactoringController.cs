@@ -5,21 +5,21 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace HenryAI.Agent.Host.Refactoring.Controllers;
 
-[Route("agent/refactoring")]
+[Route("agent/code/refactoring")]
 public class RefactoringController : ControllerBase
 {
-    private readonly IBaseServiceFactory _baseServiceFactory;
+    private readonly IActionServiceFactory _actionServiceFactory;
 
-    public RefactoringController(IBaseServiceFactory baseServiceFactory)
+    public RefactoringController(IActionServiceFactory actionServiceFactory)
     {
-        _baseServiceFactory = baseServiceFactory;
+        _actionServiceFactory = actionServiceFactory;
     }
     
     [HttpPost]
     [Route("rawcode")]
     public async Task<IActionResult> CreateRefactoring([FromBody] RefactoringRawCodeInputDto input)
     {
-        var service = _baseServiceFactory.Get(ActionType.Refactoring);
+        var service = _actionServiceFactory.Get(ActionType.Refactoring);
         var response = await service.BaseAction(input.Code);
         if (!string.IsNullOrEmpty(response))
         {

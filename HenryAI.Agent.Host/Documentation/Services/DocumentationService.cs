@@ -7,9 +7,9 @@ using HenryAI.Agent.Host.Tokens;
 
 namespace HenryAI.Agent.Host.Documentation.Services;
 
-public class DocumentationService : IBaseService, ITransientDependency
+public class DocumentationService : IActionService, ITransientDependency
 {
-    private readonly TemplateType _templateType = TemplateType.DocumentationTemplate;
+    private TemplateType TemplateType => TemplateType.DocumentationTemplate;
     public ActionType Action => ActionType.Documentation;
 
     private readonly ITemplateService _templateService;
@@ -25,7 +25,7 @@ public class DocumentationService : IBaseService, ITransientDependency
     {
         var replaceProperties = new Dictionary<ReplaceProperty, string>();
         replaceProperties.Add(ReplaceProperty.Code,code);
-        var templateDto = _templateService.BuildTemplate(_templateType,replaceProperties);
+        var templateDto = _templateService.BuildTemplate(TemplateType,replaceProperties);
         if (!templateDto.Ok)
         {
             return "";

@@ -2,7 +2,7 @@
 
 namespace HenryAI.Agent.Host.Services.Interfaces;
 
-public interface IBaseServiceFactory
+public interface IActionServiceFactory
 {
-    IBaseService Get(ActionType type);
+    IActionService Get(ActionType type);
 }

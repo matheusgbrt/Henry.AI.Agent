@@ -7,9 +7,9 @@ using HenryAI.Agent.Host.Tokens;
 
 namespace HenryAI.Agent.Host.Refactoring.Services;
 
-public class RefactoringService : IBaseService, ITransientDependency
+public class RefactoringService : IActionService, ITransientDependency
 {
-    private TemplateType _templateType => TemplateType.RefactoringTemplate;
+    private TemplateType TemplateType => TemplateType.RefactoringTemplate;
     public ActionType Action => ActionType.Refactoring;
     
     private readonly ITemplateService _templateService;
@@ -27,7 +27,7 @@ public class RefactoringService : IBaseService, ITransientDependency
         {
             {ReplaceProperty.Code,code}
         };
-        var templateDto = _templateService.BuildTemplate(_templateType,replaceProperties);
+        var templateDto = _templateService.BuildTemplate(TemplateType,replaceProperties);
         if (!templateDto.Ok)
             return "";
         var response= await _chatService.SendMessageAsync(templateDto.ReplacedTemplate);
