@@ -19,6 +19,10 @@ public class RefactoringController : ControllerBase
     [Route("rawcode")]
     public async Task<IActionResult> CreateRefactoring([FromBody] RefactoringRawCodeInputDto input)
     {
+        if (ModelState.IsValid)
+        {
+            return BadRequest();
+        }
         var service = _actionServiceFactory.Get(ActionType.Refactoring);
         var response = await service.BaseAction(input.Code);
         if (!string.IsNullOrEmpty(response))
