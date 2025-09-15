@@ -10,7 +10,7 @@ public class DocumentationTemplateProvider : ITemplateProvider, ITransientDepend
 
     public string ProvideTemplate()
     {
-        return "return @"
+        return @"
 Analise o código fornecido e gere documentação completa seguindo estas diretrizes:
 
 1. **Descrição Geral**: Explique o propósito principal do código em linguagem simples

@@ -20,9 +20,9 @@ public class DocumentationController : ControllerBase
     [Route("rawcode")]
     public async Task<IActionResult> CreateDocumentationFromRawCode([FromBody] DocumentationRawCodeInputDto input)
     {
-        if (ModelState.IsValid)
+        if (!ModelState.IsValid)
         {
-            return BadRequest();
+            return BadRequest(ModelState);
         }
         var service = _actionServiceFactory.Get(ActionType.Documentation);
         var response = await service.BaseAction(input.Code);
