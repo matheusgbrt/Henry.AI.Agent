@@ -2,16 +2,12 @@
 using HenryAI.Agent.Domain.Templates.Tokens;
 using HenryAI.Agent.ExternalDependencies.DependencyInjectons.Interfaces;
 using HenryAI.Agent.Host.OpenAI.Services;
-using HenryAI.Agent.Host.Services.Interfaces;
-using HenryAI.Agent.Host.Tokens;
 
 namespace HenryAI.Agent.Host.Refactoring.Services;
 
-public class RefactoringService : IActionService, ITransientDependency
+public class RefactoringService :IRefactoringService, ITransientDependency
 {
     private TemplateType TemplateType => TemplateType.RefactoringTemplate;
-    public ActionType Action => ActionType.Refactoring;
-    
     private readonly ITemplateService _templateService;
     private readonly IChatService _chatService;
 
@@ -21,7 +17,7 @@ public class RefactoringService : IActionService, ITransientDependency
         _chatService = chatService;
     }
 
-    public async Task<string> BaseAction(string code)
+    public async Task<string> RefactorRawCode(string code)
     {
         var replaceProperties = new Dictionary<ReplaceProperty, string>()
         {

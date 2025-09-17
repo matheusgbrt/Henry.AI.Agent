@@ -1,6 +1,5 @@
 ﻿using HenryAI.Agent.Host.Documentation.Dtos;
-using HenryAI.Agent.Host.Services.Interfaces;
-using HenryAI.Agent.Host.Tokens;
+using HenryAI.Agent.Host.Refactoring.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HenryAI.Agent.Host.Refactoring.Controllers;
@@ -8,13 +7,14 @@ namespace HenryAI.Agent.Host.Refactoring.Controllers;
 [Route("agent/code/refactoring")]
 public class RefactoringController : ControllerBase
 {
-    private readonly IActionServiceFactory _actionServiceFactory;
+    private readonly IRefactoringService _refactoringService;
 
-    public RefactoringController(IActionServiceFactory actionServiceFactory)
+    public RefactoringController(IRefactoringService refactoringService)
     {
-        _actionServiceFactory = actionServiceFactory;
+        _refactoringService = refactoringService;
     }
-    
+
+
     [HttpPost]
     [Route("rawcode")]
     public async Task<IActionResult> CreateRefactoring([FromBody] RefactoringRawCodeInputDto input)
@@ -23,8 +23,8 @@ public class RefactoringController : ControllerBase
         {
             return BadRequest(ModelState);
         }
-        var service = _actionServiceFactory.Get(ActionType.Refactoring);
-        var response = await service.BaseAction(input.Code);
+
+        var response = await _refactoringService.RefactorRawCode(input.Code);
         if (!string.IsNullOrEmpty(response))
         {
             return Ok(new RefactoringRawCodeOutputDto(response));

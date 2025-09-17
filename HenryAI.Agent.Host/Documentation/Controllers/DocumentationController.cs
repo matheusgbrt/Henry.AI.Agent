@@ -1,21 +1,19 @@
 ﻿using HenryAI.Agent.Host.Documentation.Dtos;
 using HenryAI.Agent.Host.Documentation.Services;
-using HenryAI.Agent.Host.Services;
-using HenryAI.Agent.Host.Services.Interfaces;
-using HenryAI.Agent.Host.Tokens;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HenryAI.Agent.Host.Documentation.Controllers;
 [Route("agent/code/documentation")]
 public class DocumentationController : ControllerBase
 {
-    private readonly IActionServiceFactory _actionServiceFactory;
+    private readonly IDocumentationService _documentationService;
 
-    public DocumentationController(IActionServiceFactory actionServiceFactory)
+    public DocumentationController(IDocumentationService documentationService)
     {
-        _actionServiceFactory = actionServiceFactory;
+        _documentationService = documentationService;
     }
-    
+
+
     [HttpPost]
     [Route("rawcode")]
     public async Task<IActionResult> CreateDocumentationFromRawCode([FromBody] DocumentationRawCodeInputDto input)
@@ -24,8 +22,7 @@ public class DocumentationController : ControllerBase
         {
             return BadRequest(ModelState);
         }
-        var service = _actionServiceFactory.Get(ActionType.Documentation);
-        var response = await service.BaseAction(input.Code);
+        var response = await _documentationService.DocumentRawCode(input.Code);
 
         if (!string.IsNullOrEmpty(response))
         {

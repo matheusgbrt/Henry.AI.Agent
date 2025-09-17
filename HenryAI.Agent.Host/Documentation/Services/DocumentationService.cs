@@ -2,16 +2,13 @@
 using HenryAI.Agent.Domain.Templates.Tokens;
 using HenryAI.Agent.ExternalDependencies.DependencyInjectons.Interfaces;
 using HenryAI.Agent.Host.OpenAI.Services;
-using HenryAI.Agent.Host.Services.Interfaces;
-using HenryAI.Agent.Host.Tokens;
+
 
 namespace HenryAI.Agent.Host.Documentation.Services;
 
-public class DocumentationService : IActionService, ITransientDependency
+public class DocumentationService : IDocumentationService,ITransientDependency
 {
     private TemplateType TemplateType => TemplateType.DocumentationTemplate;
-    public ActionType Action => ActionType.Documentation;
-
     private readonly ITemplateService _templateService;
     private readonly IChatService _chatService;
 
@@ -21,7 +18,7 @@ public class DocumentationService : IActionService, ITransientDependency
         _chatService = chatService;
     }
     
-    public async Task<string> BaseAction(string code)
+    public async Task<string> DocumentRawCode(string code)
     {
         var replaceProperties = new Dictionary<ReplaceProperty, string>();
         replaceProperties.Add(ReplaceProperty.Code,code);
