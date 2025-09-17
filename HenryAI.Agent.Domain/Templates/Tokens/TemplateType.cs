@@ -3,5 +3,6 @@
 public enum TemplateType
 {
     DocumentationTemplate = 0,
-    RefactoringTemplate = 1
+    RefactoringTemplate = 1,
+    CodeUnderstandingTemplate = 2,
 }
