@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace HenryAI.Agent.Host.Refactoring.Controllers;
 
-[Route("agent/code/refactoring")]
+[Route("refactoring")]
 public class RefactoringController : ControllerBase
 {
     private readonly IRefactoringService _refactoringService;

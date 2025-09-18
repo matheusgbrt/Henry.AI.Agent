@@ -3,7 +3,7 @@ using HenryAI.Agent.Host.Documentation.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HenryAI.Agent.Host.Documentation.Controllers;
-[Route("agent/code/documentation")]
+[Route("/documentation")]
 public class DocumentationController : ControllerBase
 {
     private readonly IDocumentationService _documentationService;

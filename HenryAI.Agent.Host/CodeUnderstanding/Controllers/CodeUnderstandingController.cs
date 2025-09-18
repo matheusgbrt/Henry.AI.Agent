@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace HenryAI.Agent.Host.CodeUnderstanding.Controllers;
 
-[Route("agent/codeunderstanding")]
+[Route("codeunderstanding")]
 public class CodeUnderstandingController : ControllerBase
 {
     private readonly ICodeUnderstandingService _codeUnderstandingService;

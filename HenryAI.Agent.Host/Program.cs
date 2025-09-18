@@ -1,4 +1,7 @@
 using HenryAI.Agent.ExternalDependencies.DependencyInjectons.Extensions;
+using Mgb.Api.Extensions;
+using Mgb.Consul.Dtos;
+using Mgb.Consul.Extensions;
 using OpenAI.Chat;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,9 +17,11 @@ builder.Services.AddSingleton<ChatClient>(serviceProvider =>
 
     return new ChatClient(model, apiKey);
 });
-
 builder.Services.RegisterAllDependencies();
 
+await builder.Configuration.AddConsulConfigurationAsync(new ConsulConfig(){AppId = "Henry.AI.Agent"});
+builder.Services.AddConsulRegistration("Henry.AI.Agent");
+builder.ConfigureKestrelWithNetworkHelper();
 
 var app = builder.Build();
 
@@ -26,7 +31,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.AddConsulHealthCheck();
 app.UseAuthorization();
 
 app.MapControllers();
