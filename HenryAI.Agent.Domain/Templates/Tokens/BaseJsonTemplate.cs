@@ -6,6 +6,7 @@ public static class BaseJsonTemplate
     {
         return @"
 Seja conciso.
+Suas descrições devem ser em português do brasil. Preserve o nome das classes e tudo definido em código.
 Sua resposta deve ser em formato JSON.
 Respeite as propriedades mencionadas e preencha apenas elas, nada mais.
 Utilize camelCase para o nome das propriedades.
