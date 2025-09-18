@@ -10,18 +10,19 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 
-builder.Services.AddSingleton<ChatClient>(serviceProvider =>
-{
-    var apiKey = Environment.GetEnvironmentVariable("OPENAI_API_KEY");
-    var model = "gpt-5-nano";
-
-    return new ChatClient(model, apiKey);
-});
 builder.Services.RegisterAllDependencies();
 
 await builder.Configuration.AddConsulConfigurationAsync(new ConsulConfig(){AppId = "Henry.AI.Agent"});
 builder.Services.AddConsulRegistration("Henry.AI.Agent");
 builder.ConfigureKestrelWithNetworkHelper();
+
+builder.Services.AddSingleton<ChatClient>(serviceProvider =>
+{
+    var apiKey = builder.Configuration["OpenAI:ApiKey"];
+    var model = "gpt-5-nano";
+
+    return new ChatClient(model, apiKey);
+});
 
 var app = builder.Build();
 
