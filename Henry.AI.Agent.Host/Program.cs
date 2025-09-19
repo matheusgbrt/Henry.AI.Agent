@@ -1,4 +1,5 @@
 using Mgb.Api.Extensions;
+using Mgb.AppRegistration.Extensions;
 using Mgb.Consul.Dtos;
 using Mgb.Consul.Extensions;
 using Mgb.DependencyInjections.DependencyInjectons.Extensions;
@@ -7,14 +8,14 @@ using OpenAI.Chat;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.RegisterApp("Henry.AI.Agent");
 
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
-builder.Configuration["AppId"] = "Henry.AI.Agent";
 
 builder.Services.RegisterAllDependencies();
-await builder.Configuration.AddConsulConfigurationAsync(new ConsulConfig(){AppId = "Henry.AI.Agent"});
-builder.Services.AddConsulRegistration("Henry.AI.Agent");
+await builder.Configuration.AddConsulConfigurationAsync();
+builder.Services.AddConsulRegistration(builder.Configuration);
 builder.ConfigureKestrelWithNetworkHelper();
 builder.Services.RegisterServiceBus(builder.Configuration);
 
