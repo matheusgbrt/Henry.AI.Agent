@@ -11,11 +11,11 @@
 # Datasource local storage ignored files
 /dataSources/
 /dataSources.local.xml
-/HenryAI.Agent.Domain/obj
-/HenryAI.Agent.Domain/bin
-/HenryAI.Agent.Host/obj
-/HenryAI.Agent.Host/bin
-/HenryAI.Agent.ExternalDependencies/obj
-/HenryAI.Agent.ExternalDependencies/bin
+/Henry.AI.Agent.Domain/obj
+/Henry.AI.Agent.Domain/bin
+/Henry.AI.Agent.Host/obj
+/Henry.AI.Agent.Host/bin
+/Henry.AI.Agent.ExternalDependencies/obj
+/Henry.AI.Agent.ExternalDependencies/bin
 .idea/
 *.user
