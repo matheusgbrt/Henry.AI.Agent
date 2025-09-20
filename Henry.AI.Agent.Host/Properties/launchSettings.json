@@ -10,7 +10,7 @@
         "URL-CONSUL": "http://matheus.bertaiolli.com:8500",
         "URL-GATEWAY": "http://matheus.bertaiolli.com:9999",
         "SERVICE_ADVERTISE_HOST": "10.8.0.2",
-        "SERVICE_ADVERTISE_PORT": "5224"
+        "SERVICE_ADVERTISE_PORT": "5229"
       }
     },
     "https": {

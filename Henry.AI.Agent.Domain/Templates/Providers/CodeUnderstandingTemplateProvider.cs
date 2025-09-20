@@ -34,7 +34,7 @@ Dependencies: Um array de objetos do tipo TDependency das dependencias existente
 Implementations: Um array de objetos do tipo TImplementation de interfaces da classe analisada. Considere apenas aquilo que for declarado.
 Constructors: Um array de objetos do tipo TConstructor representando os construtores da classe analisada.
 Heritages: Um array de objetos do tipo THeritage das heranças da classe analisada. Considere apenas aquilo que for declarativo.
-Properties: Um array de objetos do tipo TProperty composto pelas propriedades da classe analisada.
+Properties: Um array de objetos do tipo TProperty composto pelas propriedades da classe analisada. Considere propriedades apenas aquilo que é explicitamente declarado como propriedade, ignore fields.
 Methods: Um array de objetos do tipo TMethod representando os métodos da classe analisada
 
 
