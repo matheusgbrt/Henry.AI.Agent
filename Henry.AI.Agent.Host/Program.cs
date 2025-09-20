@@ -1,6 +1,5 @@
 using Mgb.Api.Extensions;
 using Mgb.AppRegistration.Extensions;
-using Mgb.Consul.Dtos;
 using Mgb.Consul.Extensions;
 using Mgb.DependencyInjections.DependencyInjectons.Extensions;
 using Mgb.ServiceBus.ServiceBus.Extensions;
@@ -38,7 +37,6 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.AddConsulHealthCheck();
 app.UseAuthorization();
-
 app.MapControllers();
 
 app.Run();

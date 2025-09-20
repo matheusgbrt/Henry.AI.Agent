@@ -9,6 +9,9 @@ public class TClass
     
     [JsonPropertyName("Type")]
     public string Type { get; set; } = string.Empty;
+    
+    [JsonPropertyName("Description")]
+    public string Description { get; set; } = string.Empty;
 
     [JsonPropertyName("Dependencies")]
     public List<TDependency> Dependencies { get; set; } = new();

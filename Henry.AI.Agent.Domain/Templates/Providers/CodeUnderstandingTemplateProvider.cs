@@ -28,13 +28,14 @@ Os tipos mencionados possuem as seguintes propriedades, em ordem:
 
 TClass:
 Name: Uma string que define o nome da classe.
+Description: Sua descricão para esta classe.
 Type: Uma string que define o tipo, se é classe, interface, enum ou etc.
 Dependencies: Um array de objetos do tipo TDependency das dependencias existentes da classe analisada. Considere apenas como dependencia aquilo que é declarado em construtores por DI ou chamadas de métodos estáticos.
 Implementations: Um array de objetos do tipo TImplementation de interfaces da classe analisada. Considere apenas aquilo que for declarado.
-Constructors: Um array de objetos do tipo TConstructor da classe analisada.
+Constructors: Um array de objetos do tipo TConstructor representando os construtores da classe analisada.
 Heritages: Um array de objetos do tipo THeritage das heranças da classe analisada. Considere apenas aquilo que for declarativo.
-Properties: Um array de objetos do tipo TProperty
-Methods: Um array de objetos do tipo TMethod
+Properties: Um array de objetos do tipo TProperty composto pelas propriedades da classe analisada.
+Methods: Um array de objetos do tipo TMethod representando os métodos da classe analisada
 
 
 TDependency:
@@ -53,6 +54,7 @@ TProperty:
 2)Type: Tipo da propriedade
 3)Accessibility: Acessibilidade da dependencia, ex: public, private...
 4)Description: Sua descricão para esta propriedade
+5)Annotations: Array de objetos do tipo TAnnotation da propriedade analisada3333
 
 TMethod:
 1)Name: Nome do método
