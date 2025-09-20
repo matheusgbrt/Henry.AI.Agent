@@ -4,8 +4,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Henry.AI.Agent.Domain", "He
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Henry.AI.Agent.Host", "Henry.AI.Agent.Host\Henry.AI.Agent.Host.csproj", "{65531A65-122F-4D0E-996D-B8E80F405B65}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Henry.AI.Agent.ExternalDependencies", "Henry.AI.Agent.ExternalDependencies\Henry.AI.Agent.ExternalDependencies.csproj", "{346FBE81-0C2A-433E-B0CC-23774F0BAFF2}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,9 +18,5 @@ Global
 		{65531A65-122F-4D0E-996D-B8E80F405B65}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{65531A65-122F-4D0E-996D-B8E80F405B65}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{65531A65-122F-4D0E-996D-B8E80F405B65}.Release|Any CPU.Build.0 = Release|Any CPU
-		{346FBE81-0C2A-433E-B0CC-23774F0BAFF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{346FBE81-0C2A-433E-B0CC-23774F0BAFF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{346FBE81-0C2A-433E-B0CC-23774F0BAFF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{346FBE81-0C2A-433E-B0CC-23774F0BAFF2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
