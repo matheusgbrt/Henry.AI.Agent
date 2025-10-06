@@ -1,21 +1,23 @@
-using Mgb.Api.Extensions;
-using Mgb.AppRegistration.Extensions;
-using Mgb.Consul.Extensions;
+
 using Mgb.DependencyInjections.DependencyInjectons.Extensions;
 using Mgb.ServiceBus.ServiceBus.Extensions;
 using OpenAI.Chat;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.RegisterApp("Henry.AI.Agent");
 
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 
+builder.Services.AddCors(opt =>
+{
+    opt.AddPolicy("dev", p => p
+        .WithOrigins("http://localhost:5173", "http://127.0.0.1:5173")
+        .AllowAnyHeader()
+        .AllowAnyMethod());
+});
+
 builder.Services.RegisterAllDependencies();
-await builder.Configuration.AddConsulConfigurationAsync();
-builder.Services.AddConsulRegistration(builder.Configuration);
-builder.ConfigureKestrelWithNetworkHelper();
 builder.Services.RegisterServiceBus(builder.Configuration);
 
 
@@ -34,8 +36,9 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
+app.UseCors("dev");
+
 app.UseHttpsRedirection();
-app.AddConsulHealthCheck();
 app.UseAuthorization();
 app.MapControllers();
 

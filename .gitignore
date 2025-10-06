@@ -15,7 +15,7 @@
 /Henry.AI.Agent.Domain/bin
 /Henry.AI.Agent.Host/obj
 /Henry.AI.Agent.Host/bin
-/Henry.AI.Agent.ExternalDependencies/obj
-/Henry.AI.Agent.ExternalDependencies/bin
+/Henry.AI.ExternalDependencies/obj
+/Henry.AI.ExternalDependencies/bin
 .idea/
 *.user

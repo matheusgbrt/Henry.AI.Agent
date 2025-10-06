@@ -1,0 +1,58 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\git_back_challenge\\Henry.AI.Agent\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{65531A65-122F-4D0E-996D-B8E80F405B65}|Henry.AI.Agent.Host\\Henry.AI.Agent.Host.csproj|c:\\git_back_challenge\\henry.ai.agent\\henry.ai.agent.host\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{65531A65-122F-4D0E-996D-B8E80F405B65}|Henry.AI.Agent.Host\\Henry.AI.Agent.Host.csproj|solutionrelative:henry.ai.agent.host\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{65531A65-122F-4D0E-996D-B8E80F405B65}|Henry.AI.Agent.Host\\Henry.AI.Agent.Host.csproj|c:\\git_back_challenge\\henry.ai.agent\\henry.ai.agent.host\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{65531A65-122F-4D0E-996D-B8E80F405B65}|Henry.AI.Agent.Host\\Henry.AI.Agent.Host.csproj|solutionrelative:henry.ai.agent.host\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\git_back_challenge\\Henry.AI.Agent\\Henry.AI.Agent.Host\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "Henry.AI.Agent.Host\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\git_back_challenge\\Henry.AI.Agent\\Henry.AI.Agent.Host\\Properties\\launchSettings.json",
+              "RelativeToolTip": "Henry.AI.Agent.Host\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-10-06T17:43:09.597Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\git_back_challenge\\Henry.AI.Agent\\Henry.AI.Agent.Host\\appsettings.json",
+              "RelativeDocumentMoniker": "Henry.AI.Agent.Host\\appsettings.json",
+              "ToolTip": "C:\\git_back_challenge\\Henry.AI.Agent\\Henry.AI.Agent.Host\\appsettings.json",
+              "RelativeToolTip": "Henry.AI.Agent.Host\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-10-06T17:42:55.307Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
